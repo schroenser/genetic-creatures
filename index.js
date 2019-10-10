@@ -3,13 +3,18 @@ let creatures = [];
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    createNoms();
+    createCreatures();
+}
 
-    let i;
-    for (i = 0; i < 200; i++) {
+function createNoms() {
+    for (var i = 0; i < (windowWidth*windowHeight) / 5000; i++) {
         noms.push(new Nom(random(-1, 1)));
     }
+}
 
-    for (i = 0; i < 50; i++) {
+function createCreatures() {
+    for (var i = 0; i < (windowWidth*windowHeight) / 20000; i++) {
         creatures.push(new Creature(
             createVector(random(width) - width / 2, random(height) - height / 2),
             1,
@@ -43,6 +48,10 @@ function draw() {
     creatures = creatures.filter(function(creature) {
         return creature.health > 0;
     });
+
+    if(creatures.length == 0) {
+        createCreatures();
+    }
 
     noms.forEach(function(nom) {
         nom.draw();
