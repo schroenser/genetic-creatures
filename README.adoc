@@ -1,2 +1,4 @@
 == genetic-creatures
 Just a little website built with p5.js where little creatures compete for noms and replicate with a genetic algorithm to get better.
+
+You can run it under https://schroenser.github.io/genetic-creatures
